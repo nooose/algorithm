@@ -24,7 +24,6 @@ for i in range(n):
             array[j][y] = 1
         else:
             array[j][y] = 0
-    
 
 # 출력
 for i in range(1, 20):
