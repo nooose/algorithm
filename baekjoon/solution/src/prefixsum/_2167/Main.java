@@ -31,6 +31,7 @@ public class Main {
             for (int x = startX; x <= endX; x++) {
                 for (int y = startY; y <= endY; y++) {
                     sum += array[x][y];
+                    System.out.print(array[x][y] + "-" + x + ":" + y + ",");
                 }
             }
             System.out.println(sum);
