@@ -1,4 +1,4 @@
-package impl._5597;
+package implementation._5597;
 
 import java.util.Scanner;
 

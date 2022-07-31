@@ -1,4 +1,4 @@
-package impl._1212;
+package implementation._1212;
 
 import java.util.Scanner;
 
