@@ -55,18 +55,16 @@ public class Main {
     private static void bfs(int v) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(v);
+        bfsVisited[v] = true;
 
         while (!queue.isEmpty()) {
             int nodeNumber = queue.poll();
-
-            if (!bfsVisited[nodeNumber]) {
-                System.out.print(nodeNumber + " ");
-            }
-            bfsVisited[nodeNumber] = true;
+            System.out.print(nodeNumber + " ");
 
             for (int i = 1; i <= n; i++) {
                 if (graph[nodeNumber][i] && !bfsVisited[i]) {
                     queue.add(i);
+                    bfsVisited[i] = true;
                 }
             }
         }
