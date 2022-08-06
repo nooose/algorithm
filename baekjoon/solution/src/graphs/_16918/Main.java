@@ -9,7 +9,7 @@ public class Main {
     private final static int[] dX = {-1, 1, 0, 0};
     private final static int[] dY = {0, 0, -1, 1};
 
-    private static String[][] grid;
+    private static int[][] grid;
     private static int r;
     private static int c;
 
@@ -23,11 +23,11 @@ public class Main {
 
 
         // 폭탄 초기화
-        grid = new String[r + 1][c + 1];
+        grid = new int[r + 1][c + 1];
         for (int i = 1; i < r + 1; i++) {
             String[] input = br.readLine().split("");
             for (int j = 1; j < c + 1; j++) {
-                grid[i][j] = input[j - 1].equals("O") ? "2" : input[j - 1];
+                grid[i][j] = input[j - 1].equals("O") ? 3 : 0;
             }
         }
 
@@ -51,9 +51,8 @@ public class Main {
     private static void countBomb() {
         for (int i = 1; i < r + 1; i++) {
             for (int j = 1; j < c + 1; j++) {
-                if (grid[i][j].equals("2") || grid[i][j].equals("1")) {
-                    int bombCount = Integer.parseInt(grid[i][j]) - 1;
-                    grid[i][j] = bombCount + "";
+                if (grid[i][j] >= 2) {
+                    grid[i][j] = grid[i][j] - 1;
                 }
             }
         }
@@ -62,8 +61,8 @@ public class Main {
     private static void plantBomb() {
         for (int i = 1; i < r + 1; i++) {
             for (int j = 1; j < c + 1; j++) {
-                if (grid[i][j].equals(".")) {
-                    grid[i][j] = "2";
+                if (grid[i][j] == 0) {
+                    grid[i][j] = 3;
                 }
             }
         }
@@ -80,7 +79,7 @@ public class Main {
     }
 
     private static void explodeBomb(Point startPoint) {
-        grid[startPoint.x][startPoint.y] = ".";
+        grid[startPoint.x][startPoint.y] = 0;
 
         for (int i = 0; i < 4; i++) {
             Point nextPoint = new Point(startPoint.x + dX[i], startPoint.y + dY[i]);
@@ -91,22 +90,22 @@ public class Main {
                 continue;
             }
 
-            grid[nextPoint.x][nextPoint.y] = ".";
+            grid[nextPoint.x][nextPoint.y] = 0;
         }
     }
 
     private static boolean isTimeOutBomb(int i, int j) {
-        return grid[i][j].equals("0");
+        return grid[i][j] == 1;
     }
 
     private static void printGrid() {
         for (int i = 1; i < r + 1; i++) {
             for (int j = 1; j < c + 1; j++) {
-                if (!grid[i][j].equals(".")) {
-                    System.out.print("O");
+                if (grid[i][j] == 0) {
+                    System.out.print(".");
                     continue;
                 }
-                System.out.print(".");
+                System.out.print("O");
             }
             System.out.println();
         }
