@@ -28,7 +28,6 @@ public class Main {
             }
         }
 
-
         for (int i = 1; i < n + 1; i++) {
             for (int j = 1; j < n + 1; j++) {
                 if (!visited[i][j] && map[i][j] == 1) {
@@ -37,7 +36,7 @@ public class Main {
             }
         }
 
-        Collections.sort(result);
+        result.sort(Comparator.naturalOrder());
         System.out.println(result.size());
         for (Integer count : result) {
             System.out.println(count);
