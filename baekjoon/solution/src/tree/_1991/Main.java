@@ -21,16 +21,16 @@ public class Main {
         // 노드 연결
         for (int i = 0; i < n; i++) {
             StringTokenizer strTokenizer = new StringTokenizer(br.readLine(), " ");
-            String node = strTokenizer.nextToken();
-            String leftChild = strTokenizer.nextToken();
-            String rightChild = strTokenizer.nextToken();
+            String nodeId = strTokenizer.nextToken();
+            String leftChildId = strTokenizer.nextToken();
+            String rightChildId = strTokenizer.nextToken();
 
-            if (!leftChild.equals(".")) {
-                nodes.get(node).setLeftChild(nodes.get(leftChild));
+            if (!leftChildId.equals(".")) {
+                nodes.get(nodeId).setLeftChild(nodes.get(leftChildId));
             }
 
-            if (!rightChild.equals(".")) {
-                nodes.get(node).setRightChild(nodes.get(rightChild));
+            if (!rightChildId.equals(".")) {
+                nodes.get(nodeId).setRightChild(nodes.get(rightChildId));
             }
         }
 
