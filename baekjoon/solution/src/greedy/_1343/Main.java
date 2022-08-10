@@ -13,8 +13,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String boards = br.readLine();
 
-        boards = boards.replace("XXXX", POLYOMINO[AAAA]);
-        boards = boards.replace("XX", POLYOMINO[BB]);
+        boards = boards.replace("XXXX", POLYOMINO[AAAA])
+                        .replace("XX", POLYOMINO[BB]);
 
         System.out.println(boards.contains("X") ? -1 : boards);
     }
