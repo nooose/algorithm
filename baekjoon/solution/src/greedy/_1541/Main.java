@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    public static final int INIT_VALUE = -1;
+    public static final int INIT_VALUE = Integer.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
