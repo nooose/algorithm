@@ -1,3 +1,5 @@
+package _01
+
 import kotlin.math.min
 
 fun main() {
@@ -12,7 +14,7 @@ fun main() {
 /**
  * 0 또는 1을 뒤집어 모두 같은 숫자로 만드는 최소 횟수를 구한다.
  */
-fun findCountTurnOut(input: String): Int {
+private fun findCountTurnOut(input: String): Int {
     var countToAllZero = 0
     var countToAllOne = 0
 

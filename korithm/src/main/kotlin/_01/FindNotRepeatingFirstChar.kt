@@ -1,3 +1,5 @@
+package _01
+
 fun main() {
     val case1 = "abadabac"
     val case2 = "aabbcddd"
@@ -11,7 +13,7 @@ fun main() {
 /**
  * 반복되지 않은 가장 첫번째 문자를 반환한다.
  */
-fun findNotRepeatingFirstChar(input: String): Char {
+private fun findNotRepeatingFirstChar(input: String): Char {
     val occurrence = IntArray(26)
     val inputChars = input.toCharArray()
     for (inputChar in inputChars) {
